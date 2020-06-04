@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/mui-org.material-ui.paper": "^4.9.10",
+    "@bit/mui-org.material-ui.tab": "^4.9.10",
+    "@bit/mui-org.material-ui.tabs": "^4.9.10",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
