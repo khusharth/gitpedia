@@ -4,9 +4,6 @@ import { withStyles } from "@bit/mui-org.material-ui.styles";
 import Paper from "@bit/mui-org.material-ui.paper";
 import Tabs from "@bit/mui-org.material-ui.tabs";
 import Tab from "@bit/mui-org.material-ui.tab";
-import Stats from "./Stats";
-import Timeline from "./Timeline";
-import Activities from "./Activities";
 
 const styles = {
     root: {
@@ -47,8 +44,6 @@ const MaterialTabs = (props) => {
         setSelectedTab(newValue);
     };
 
-    console.log(props.classes);
-
     const tabStyle = {
         root: props.classes.tabRoot,
         selected: props.classes.tabSelected,
@@ -76,9 +71,9 @@ const MaterialTabs = (props) => {
                     />
                 </Tabs>
             </Paper>
-            {selectedTab === 0 && <Stats />}
-            {selectedTab === 1 && <Timeline />}
-            {selectedTab === 2 && <Activities />}
+            {selectedTab === 0 && props.tab1}
+            {selectedTab === 1 && props.tab2}
+            {selectedTab === 2 && props.tab3}
         </>
     );
 };
