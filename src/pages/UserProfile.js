@@ -18,7 +18,7 @@ const UserProfile = (props) => {
     const [repoData, setRepoData] = useState([]);
     const [langData, setLangData] = useState([]);
     const [activityData, setActivityData] = useState([]);
-    const [rateLimit, setRateLimit] = useState(null);
+    // const [rateLimit, setRateLimit] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState({});
 
@@ -128,7 +128,7 @@ const UserProfile = (props) => {
 
     const getRateLimit = async () => {
         const response = await github.get("https://api.github.com/rate_limit");
-        setRateLimit(response.data.rate);
+        // setRateLimit(response.data.rate);
         console.log(response.data.rate);
     };
 
