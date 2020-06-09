@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 import { withStyles } from "@bit/mui-org.material-ui.styles";
 import Paper from "@bit/mui-org.material-ui.paper";
 import Tabs from "@bit/mui-org.material-ui.tabs";
 import Tab from "@bit/mui-org.material-ui.tab";
 
+// Object for configuring default material UI styles
 const styles = {
     root: {
         flexGrow: 1,

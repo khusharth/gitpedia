@@ -51,6 +51,12 @@ const ActivitiesItem = styled.div`
 const ActivityDiv = styled.div`
     width: 75%;
 
+    & svg {
+        vertical-align: middle;
+        margin-bottom: 4px;
+        margin-right: 5px;
+    }
+
     @media only screen and (max-width: 600px) {
         width: 100%;
     }
@@ -65,6 +71,12 @@ const TimeDiv = styled.div`
         margin-top: 1rem;
         width: 100%;
     }
+`;
+
+const FlexContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
 `;
 
 const Activities = ({ activityData }) => {
@@ -188,21 +200,34 @@ const Activities = ({ activityData }) => {
     const buildActivityList = () => {
         const messages = extractActivity();
 
-        return messages.map((message) => (
-            <li>
-                <ActivitiesItem>
-                    <ActivityDiv>
-                        <span>
-                            {message.icon} {message.action}
-                        </span>
-                        <a href={`https://github.com/${message.repoName}`}>
-                            {message.repoName}
-                        </a>
-                    </ActivityDiv>
-                    <TimeDiv>{message.time}</TimeDiv>
-                </ActivitiesItem>
-            </li>
-        ));
+        if (messages.length !== 0) {
+            return messages.map((message) => (
+                <li>
+                    <ActivitiesItem>
+                        <ActivityDiv>
+                            <span>
+                                {message.icon} {message.action}
+                            </span>
+                            <a href={`https://github.com/${message.repoName}`}>
+                                {message.repoName}
+                            </a>
+                        </ActivityDiv>
+                        <TimeDiv>{message.time}</TimeDiv>
+                    </ActivitiesItem>
+                </li>
+            ));
+        } else {
+            return (
+                <li>
+                    <ActivitiesItem>
+                        <FlexContainer>
+                            No recent activities found :(
+                        </FlexContainer>
+                    </ActivitiesItem>
+                </li>
+            );
+        }
+
     };
 
     return (
