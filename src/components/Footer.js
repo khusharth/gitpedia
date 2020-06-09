@@ -1,14 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import { GoStar } from "react-icons/go";
 
-const FooterConatiner = styled.footer`
+const FooterContainer = styled.footer`
     display: flex;
     text-align: center;
     flex-direction:column;
     align-items: center;
     height: 6rem;
-    padding: 0 2rem 0.5rem 2rem;
+    padding: 0 2rem 1rem 2rem;
     font-size: 1.4rem;
+
+    & svg {
+        vertical-align: middle;
+    }
+
+    @media only screen and (max-width: 600px) {
+        height: 8rem;
+    }
 `;
 
 const ProjectLink = styled.a`
@@ -27,9 +36,9 @@ const ProjectLink = styled.a`
 
 const Footer = () => {
     return (
-        <FooterConatiner>
+        <FooterContainer>
             <div>
-                If you like this project then you can show some love by giving it a star :)
+                If you like this project then you can show some love by giving it a <GoStar /> :)
             </div>
             <div>
                 <ProjectLink
@@ -39,7 +48,7 @@ const Footer = () => {
                     khusharth/gitpedia
                 </ProjectLink>
             </div>
-        </FooterConatiner>
+        </FooterContainer>
     );
 };
 

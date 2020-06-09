@@ -138,6 +138,7 @@ const TimelineContainer = styled.div`
 
     & ul li .time h4 {
         font-size: 14px;
+        font-weight: 500;
     }
 
     @media only screen and (max-width: 1000px) {

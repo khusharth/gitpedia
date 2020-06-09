@@ -1,15 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { FaMoon, FaSun } from "react-icons/fa";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import Logo from "./Logo";
-import Button from "./Button";
-
+import Toggle from "./Toggle";
 
 const StyledHeader = styled.header`
-    background-color: #fff;
-    /* background-color: #27293d; */
+    background-color: ${p => p.theme.cardColor};
     height: 7rem;
-    box-shadow: 0 1rem 2rem #eee;
+    box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     padding: 1rem 6rem;
@@ -26,10 +23,12 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
+    const { id, setTheme } = useContext(ThemeContext);
+
     return (
         <StyledHeader>
             <Logo width='180px' />
-            <Button><FaSun /></Button>
+            <Toggle isDark={id === 'dark'} onToggle={setTheme} />
         </StyledHeader>
     );
 };

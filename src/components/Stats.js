@@ -20,13 +20,13 @@ const StatsDiv = styled.div`
     background-color: ${(p) => {
         if (p.secondary) return "#00b7e1";
         else if (p.tertiary) return "#00DCCE";
-        else if (p.quad) return "#00f2c3";
+        else if (p.quad) return "#00e1b5";
         else return "#0098f0";
     }};
-    color: #fff;
+    color: rgb(255,255,255);
     margin-top: 0;
     margin-right: 1rem;
-    box-shadow: 0 1rem 2rem #ccc;
+    box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     padding: 1.5rem 3rem;
     min-width: 20rem;
     border-radius: 5px;
@@ -40,6 +40,10 @@ const StatsDiv = styled.div`
         margin-top: ${(p) => (p.quad ? "2rem" : "0rem")};
     }
 
+    @media only screen and (max-width: 600px) {
+        text-align: center;
+    }
+
     @media only screen and (max-width: 630px) {
         margin-top: ${(p) => (p.tertiary || p.quad ? "2rem" : "0rem")};
     }
@@ -48,6 +52,7 @@ const StatsDiv = styled.div`
         margin-top: ${(p) => (p.primary ? "0rem" : "2rem")};
         margin-right: 0;
     }
+
 `;
 
 const RoundChartContainer = styled.div`
@@ -73,9 +78,8 @@ const ChartDiv = styled.div`
     max-height: 55rem;
     border-radius: 5px;
     min-width: 38rem;
-    box-shadow: 0 1rem 2rem #ccc;
-    background-color: #27293d;
-    background-color: #fff;
+    box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+    background-color: ${p => p.theme.cardColor};
 
     & canvas {
        max-height: 40rem;

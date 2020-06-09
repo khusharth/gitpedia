@@ -43,9 +43,9 @@ const ActivitiesItem = styled.div`
     display: flex;
     flex-wrap: wrap;
     border-radius: 5px;
-    box-shadow: 0 1rem 2rem #ccc;
+    box-shadow: 0 1rem 2rem -0.6rem rgba(0,0,0, .2);
     justify-content: space-between;
-    background-color: #fff;
+    background-color: ${p => p.theme.cardColor};
 `;
 
 const ActivityDiv = styled.div`

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { withStyles } from "@bit/mui-org.material-ui.styles";
-import Paper from "@bit/mui-org.material-ui.paper";
 import Tabs from "@bit/mui-org.material-ui.tabs";
 import Tab from "@bit/mui-org.material-ui.tab";
 
+const TabsContainer = styled.div`
+    background-color: ${p => p.theme.cardColor};
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+    border-radius: 4px;
+`;
 // Object for configuring default material UI styles
 const styles = {
-    root: {
-        flexGrow: 1,
-        // color: "#0098f0",
-        // backgroundColor: "#27293D",
-    },
     indicator: {
-        backgroundColor: "#0098f0",
+        backgroundColor: "#1890ff",
     },
     centered: {
         justifyContent: "space-around",
@@ -49,10 +49,10 @@ const MaterialTabs = (props) => {
         selected: props.classes.tabSelected,
     };
 
-    const { root, indicator, centered, tab } = props.classes;
+    const { indicator, centered, tab } = props.classes;
     return (
         <>
-            <Paper className={root}>
+            <TabsContainer>
                 <Tabs
                     classes={{
                         indicator: indicator,
@@ -70,7 +70,7 @@ const MaterialTabs = (props) => {
                         classes={tabStyle}
                     />
                 </Tabs>
-            </Paper>
+            </TabsContainer>
             {selectedTab === 0 && props.tab1}
             {selectedTab === 1 && props.tab2}
             {selectedTab === 2 && props.tab3}

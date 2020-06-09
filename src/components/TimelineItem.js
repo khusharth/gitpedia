@@ -4,14 +4,15 @@ import { GoRepo, GoRepoForked, GoStar, GoPrimitiveDot } from "react-icons/go";
 
 const ItemContainer = styled.div`
     display: inline-block;
-    background-color: #fff;
+    background-color: ${p => p.theme.cardColor};
     padding: 2rem;
     border-radius: 5px;
-    box-shadow: 0 1rem 2rem #ccc;
+    box-shadow: 0 1rem 2rem 0 rgb(0,0,0,0.2);
     min-width: 30rem;
 
     & h1 {
         padding-bottom: 1.5rem;
+        font-weight: 500;
     }
 
     @media only screen and (max-width: 600px) {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-    color: #fff;
+    color: rgb(255,255,255);
     border: none;
     background-image: linear-gradient(to right, #0098f0, #00f2c3);
     padding: 1rem 1.5rem;
@@ -13,12 +13,12 @@ const Button = styled.button`
 
     &:hover {
         transform: scale(1.1);
-        box-shadow: 0 1rem 2rem #ccc;
+        box-shadow: 0 1rem 2rem 0 rgba(0,0,0, .2);
     }
 
     &:focus {
         outline: 0;
-        box-shadow: 0 1rem 2rem #ccc;
+        box-shadow: 0 1rem 2rem 0 rgba(0,0,0, .2);
     }
 
     &:active {
