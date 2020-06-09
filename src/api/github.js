@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// A pre configured instace of axios for github API 
 export default axios.create({
     baseURL: "https://api.github.com",
     auth: {
