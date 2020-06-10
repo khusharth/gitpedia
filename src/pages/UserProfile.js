@@ -126,14 +126,14 @@ const UserProfile = (props) => {
         }
     };
 
-    const getRateLimit = async () => {
-        const response = await github.get("https://api.github.com/rate_limit");
-        // setRateLimit(response.data.rate);
-        console.log(response.data.rate);
-    };
+    // const getRateLimit = async () => {
+    //     const response = await github.get("https://api.github.com/rate_limit");
+    //     setRateLimit(response.data.rate);
+    //     console.log(response.data.rate);
+    // };
 
     useEffect(() => {
-        getRateLimit();
+        // getRateLimit();
         getLangData();
         getActivityData();
         getUserData();

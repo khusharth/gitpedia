@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import Toggle from "./Toggle";
 
@@ -20,6 +21,10 @@ const StyledHeader = styled.header`
         vertical-align: middle;
         font-size: 2rem;
     }
+
+    & a:focus {
+        outline: none;
+    }
 `;
 
 const Header = () => {
@@ -27,7 +32,9 @@ const Header = () => {
 
     return (
         <StyledHeader>
-            <Logo width='180px' />
+            <Link to="/">
+                <Logo width='180px' />
+            </Link>
             <Toggle isDark={id === 'dark'} onToggle={setTheme} />
         </StyledHeader>
     );
