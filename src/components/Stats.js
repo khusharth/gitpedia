@@ -19,8 +19,8 @@ const StatsDiv = styled.div`
     display: inline-block;
     background-color: ${(p) => {
         if (p.secondary) return "#00b7e1";
-        else if (p.tertiary) return "#00DCCE";
-        else if (p.quad) return "#00e1b5";
+        else if (p.tertiary) return "#00cbbe";
+        else if (p.quad) return "#00d0a7";
         else return "#0098f0";
     }};
     color: rgb(255,255,255);
@@ -28,7 +28,7 @@ const StatsDiv = styled.div`
     margin-right: 1rem;
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
     padding: 1.5rem 3rem;
-    min-width: 20rem;
+    min-width: 25rem;
     border-radius: 5px;
     font-size: 2rem;
 
@@ -36,20 +36,23 @@ const StatsDiv = styled.div`
         vertical-align: middle;
     }
 
-    @media only screen and (max-width: 815px) {
+    @media only screen and (max-width: 1174px) {
         margin-top: ${(p) => (p.quad ? "2rem" : "0rem")};
+    }
+
+    @media only screen and (max-width: 749px) {
+        margin-top: ${(p) => (p.tertiary || p.quad ? "2rem" : "0rem")};
     }
 
     @media only screen and (max-width: 600px) {
         text-align: center;
     }
 
-    @media only screen and (max-width: 630px) {
-        margin-top: ${(p) => (p.tertiary || p.quad ? "2rem" : "0rem")};
+    @media only screen and (max-width: 516px) {
+        margin-top: ${(p) => (p.primary ? "0rem" : "2rem")};
     }
 
-    @media only screen and (max-width: 440px) {
-        margin-top: ${(p) => (p.primary ? "0rem" : "2rem")};
+     @media only screen and (max-width: 498px) {
         margin-right: 0;
     }
 
