@@ -14,7 +14,7 @@ const Form = styled.form`
 
     @media only screen and (max-width: 600px) {
         & button {
-            height: 82%;
+            align-self: flex-start;
         }
     }
 
