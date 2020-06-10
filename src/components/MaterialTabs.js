@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { withStyles } from "@bit/mui-org.material-ui.styles";
-import Tabs from "@bit/mui-org.material-ui.tabs";
-import Tab from "@bit/mui-org.material-ui.tab";
+import { withStyles } from "@material-ui/styles";
+import { Tab, Tabs } from "@material-ui/core";
 
 const TabsContainer = styled.div`
     background-color: ${p => p.theme.cardColor};
