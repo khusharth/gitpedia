@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
 export default axios.create({
     baseURL: "https://api.github.com",
     auth: {
-        username: `${githubClientId}`,
-        password: `${githubClientSecret}`,
+        username: githubClientId,
+        password: githubClientSecret,
     },
 });
