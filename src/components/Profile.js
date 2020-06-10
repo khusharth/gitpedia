@@ -197,7 +197,8 @@ const Profile = (props) => {
 
     let website = blog;
 
-    if (blog && blog.slice(1, 5) !== "http") {
+    if (blog && blog.slice(0, 4) !== "http") {
+        console.log(blog.slice(0, 4))
         website = `http://${blog}`;
     }
 

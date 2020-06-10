@@ -134,10 +134,10 @@ const UserProfile = (props) => {
 
     useEffect(() => {
         getRateLimit();
-        getUserData();
-        getUserRepos();
         getLangData();
         getActivityData();
+        getUserData();
+        getUserRepos();
     }, []);
 
     if (loading) {
