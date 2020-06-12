@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import history from "../history";
 import Button from "./Button";
-import search from "../assets/search.svg";
-
+import { FaSearch } from "react-icons/fa";
 
 const Form = styled.form`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 4rem;
 
     @media only screen and (max-width: 600px) {
         & button {
@@ -18,10 +16,14 @@ const Form = styled.form`
         }
     }
 
-     @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 400px) {
         & button {
             height: auto;
         }
+    }
+
+    & span {
+        
     }
 `;
 
@@ -32,7 +34,7 @@ const Input = styled.input`
     padding: 1.2rem 1.6rem;
     border-radius: 5px;
     border: none;
-    background-color: ${p => p.theme.cardColor};
+    background-color: ${p => p.theme.inputColor};
     border-bottom: 3px solid transparent;
     margin-left: 10px;
     margin-right: 15px;
@@ -58,13 +60,14 @@ const Input = styled.input`
 
 const Span = styled.span`
     font-size: 2.4rem;
+    display: ${p => p.displaySpan ? 'inline-block' : 'none'};
 
     @media only screen and (max-width: 600px) {
         display: none;
     }
 `;
 
-const SearchForm = () => {
+const SearchForm = ({ displaySpan }) => {
     const [user, updateUser] = useState("");
 
     const onFormSubmit = async (event, user) => {
@@ -77,7 +80,7 @@ const SearchForm = () => {
     };
 
     return (
-        <Form onSubmit={(e) => onFormSubmit(e, user)}>
+        <Form onSubmit={(e) => onFormSubmit(e, user)} displaySpan={displaySpan}>
             <Span> ~ $ git --view </Span>
             <Input
                 value={user}
@@ -86,7 +89,8 @@ const SearchForm = () => {
                 placeholder='Enter Github Username'
             />
             <Button>
-                <img src={search} alt='search' />
+                {/* <img src={search} alt='search' /> */}
+                <FaSearch />
             </Button>
         </Form>
     );

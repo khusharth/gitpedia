@@ -24,6 +24,7 @@ const UserProfile = (props) => {
 
     const getUserData = async () => {
         setLoading(true);
+
         try {
             const response = await github.get(`/users/${username}`);
             setUserData(response.data);
@@ -49,11 +50,12 @@ const UserProfile = (props) => {
 
     const getUserRepos = async () => {
         setLoading(true);
-
         try {
             const findTotalRepo = await github.get(`/users/${username}`);
             const totalRepo = findTotalRepo.data.public_repos;
             let totalRequest = 1;
+            // Reset Repo data to [] after rerendering
+            setRepoData([]);
 
             // To get more than 100 repo find number of requests needed to make
             if (totalRepo > 0) {
@@ -88,20 +90,23 @@ const UserProfile = (props) => {
     // Using GhPolyglot library to get all the languages used
     const getLangData = () => {
         setLoading(true);
+
         const currentUser = new GhPolyglot(`${username}`);
         currentUser.userStats((err, stats) => {
             if (err) {
                 setError({ active: true, type: err });
                 console.log(err);
             }
-
-            setLangData(stats);
+            if (stats) {
+                setLangData(stats);
+            }
         });
         setLoading(false);
     };
 
     const getActivityData = async () => {
         setLoading(true);
+
         try {
             const response = await github.get(
                 `/users/${username}/events?per_page=30`
@@ -134,11 +139,12 @@ const UserProfile = (props) => {
 
     useEffect(() => {
         // getRateLimit();
+        setError({ active: false, type: 200 });
         getLangData();
         getActivityData();
         getUserData();
         getUserRepos();
-    }, []);
+    }, [username]);
 
     if (loading) {
         return (

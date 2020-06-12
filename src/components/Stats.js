@@ -30,7 +30,7 @@ const StatsDiv = styled.div`
     padding: 1.5rem 3rem;
     min-width: 25rem;
     border-radius: 5px;
-    font-size: 2rem;
+    font-size: 2.2rem;
 
     & svg {
         vertical-align: middle;

@@ -32,6 +32,15 @@ const Container = styled.div`
         margin-bottom: 1rem;    
     }
 
+    & form {
+        margin-top: 4rem;
+
+        & svg {
+            font-size: 2rem;
+        }
+    }
+
+
 `;
 
 const Home = () => {
@@ -44,7 +53,7 @@ const Home = () => {
             </StyledHeader>
             <Container>
                 <Logo width="280px" />
-                <Form />
+                <Form displaySpan />
             </Container>
         </>
 
