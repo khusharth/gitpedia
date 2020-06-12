@@ -58,3 +58,8 @@ A web application to  :mag:  view a github's user profile in a more simple and b
 [![Twitter](https://img.shields.io/badge/follow-%40khusharth19-1DA1F2?style=flat&logo=Twitter)](https://twitter.com/khusharth19) 
 
 [![LinkedIn](https://img.shields.io/badge/connect-%40khusharthpatani-%230077B5?style=flat&logo=LinkedIn)](https://www.linkedin.com/in/khusharth/)
+
+## :page_with_curl: Licence 
+
+[MIT License](https://github.com/khusharth/gitpedia/blob/master/LICENSE) Copyright (c) 2020 Khusharth A Patani
+
