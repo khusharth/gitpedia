@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Button = styled.button`
     color: rgb(255,255,255);
     border: none;
-    background-image: linear-gradient(to right, #0098f0, #00f2c3);
+    background-image: linear-gradient(to right, #0098f0, #00e1b5);
     padding: 1rem 1.5rem;
     border-radius: 5px;
     border-bottom: 2px solid transparent;

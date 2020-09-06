@@ -10,6 +10,10 @@ const Form = styled.form`
     justify-content: center;
     align-items: center;
 
+    & button {
+        padding: 1.2rem 1.5rem;
+    }
+
     @media only screen and (max-width: 600px) {
         & button {
             align-self: flex-start;
