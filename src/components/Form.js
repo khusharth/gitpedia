@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import history from "../history";
 import Button from "./Button";
 import { FaSearch } from "react-icons/fa";
 
@@ -27,7 +27,6 @@ const Form = styled.form`
     }
 
     & span {
-        
     }
 `;
 
@@ -38,7 +37,7 @@ const Input = styled.input`
     padding: 1.2rem 1.6rem;
     border-radius: 5px;
     border: none;
-    background-color: ${p => p.theme.inputColor};
+    background-color: ${(p) => p.theme.inputColor};
     border-bottom: 3px solid transparent;
     margin-left: 10px;
     margin-right: 15px;
@@ -46,7 +45,7 @@ const Input = styled.input`
 
     &:focus {
         outline: none;
-        box-shadow: 0 1rem 2rem 0 rgba(0,0,0, .2);
+        box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
         border-bottom: 3px solid #0098f0;
     }
 
@@ -64,7 +63,7 @@ const Input = styled.input`
 
 const Span = styled.span`
     font-size: 2.4rem;
-    display: ${p => p.displaySpan ? 'inline-block' : 'none'};
+    display: ${(p) => (p.displaySpan ? "inline-block" : "none")};
 
     @media only screen and (max-width: 600px) {
         display: none;
@@ -73,6 +72,7 @@ const Span = styled.span`
 
 const SearchForm = ({ displaySpan }) => {
     const [user, updateUser] = useState("");
+    const history = useHistory();
 
     const onFormSubmit = async (event, user) => {
         event.preventDefault();
@@ -93,7 +93,6 @@ const SearchForm = ({ displaySpan }) => {
                 placeholder='Enter Github Username'
             />
             <Button>
-                {/* <img src={search} alt='search' /> */}
                 <FaSearch />
             </Button>
         </Form>
