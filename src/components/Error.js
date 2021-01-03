@@ -12,8 +12,8 @@ const ErrorContainer = styled.div`
 const ErrorDiv = styled.div`
     padding: 2rem 4rem;
     border-radius: 5px;
-    background-color: ${p => p.theme.cardColor};
-    box-shadow: 0 1rem 2rem 0 rgba(0,0,0, .2);
+    background-color: ${(p) => p.theme.cardColor};
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
 
     & svg {
         vertical-align: middle;
@@ -27,8 +27,12 @@ const Error = ({ error }) => {
         <>
             <ErrorContainer>
                 <ErrorDiv>
-                    <span><GoAlert /></span>
-                    {(error.type === 404) ? "No user found! Please try again :)" : "Oops! Some error occured. Please try again :)"}
+                    <span>
+                        <GoAlert />
+                    </span>
+                    {error.type === 404
+                        ? "No user found! Please try again :)"
+                        : "Oops! Some error occured. Please try again :)"}
                 </ErrorDiv>
             </ErrorContainer>
         </>

@@ -23,10 +23,10 @@ const StatsDiv = styled.div`
         else if (p.quad) return "#00d0a7";
         else return "#0098f0";
     }};
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     margin-top: 0;
     margin-right: 1rem;
-    box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
     padding: 1.5rem 3rem;
     min-width: 25rem;
     border-radius: 5px;
@@ -52,10 +52,9 @@ const StatsDiv = styled.div`
         margin-top: ${(p) => (p.primary ? "0rem" : "2rem")};
     }
 
-     @media only screen and (max-width: 498px) {
+    @media only screen and (max-width: 498px) {
         margin-right: 0;
     }
-
 `;
 
 const RoundChartContainer = styled.div`
@@ -81,13 +80,13 @@ const ChartDiv = styled.div`
     max-height: 55rem;
     border-radius: 5px;
     min-width: 38rem;
-    box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
-    background-color: ${p => p.theme.cardColor};
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2);
+    background-color: ${(p) => p.theme.cardColor};
 
     & canvas {
-       max-height: 40rem;
+        max-height: 40rem;
     }
-    
+
     @media only screen and (max-width: 1290px) {
         margin-top: ${(p) => (p.chart3 ? "5rem" : "0rem")};
     }
@@ -125,43 +124,45 @@ const Stats = ({ userData, repoData }) => {
     const [sizeData, setSizeData] = useState({});
     const [totalStars, setTotalStars] = useState(null);
 
-    const getMostStarredRepos = () => {
-        const LIMIT = 5;
-        const sortProperty = "stargazers_count";
-        const mostStarredRepos = repoData
-            .filter((repo) => !repo.fork)
-            .sort((a, b) => b[sortProperty] - a[sortProperty])
-            .slice(0, LIMIT);
-
-        // Label and data needed for  displaying Charts
-        const label = mostStarredRepos.map((repo) => repo.name);
-        const data = mostStarredRepos.map((repo) => repo[sortProperty]);
-
-        setStarData({ label, data });
-    };
-
-    const getTotalStars = () => {
-        const myRepos = repoData.filter((repo) => !repo.fork).map((repo) => repo.stargazers_count);
-        const totalStars = myRepos.reduce((a, b) => a + b, 0);
-
-        setTotalStars(totalStars);
-    };
-
-    const getMaxSizeRepos = () => {
-        const LIMIT = 5;
-        const sortProperty = "size";
-        const mostStarredRepos = repoData
-            .filter((repo) => !repo.fork)
-            .sort((a, b) => b[sortProperty] - a[sortProperty])
-            .slice(0, LIMIT);
-
-        const label = mostStarredRepos.map((repo) => repo.name);
-        const data = mostStarredRepos.map((repo) => repo[sortProperty]);
-
-        setSizeData({ label, data });
-    };
-
     useEffect(() => {
+        const getMostStarredRepos = () => {
+            const LIMIT = 5;
+            const sortProperty = "stargazers_count";
+            const mostStarredRepos = repoData
+                .filter((repo) => !repo.fork)
+                .sort((a, b) => b[sortProperty] - a[sortProperty])
+                .slice(0, LIMIT);
+
+            // Label and data needed for  displaying Charts
+            const label = mostStarredRepos.map((repo) => repo.name);
+            const data = mostStarredRepos.map((repo) => repo[sortProperty]);
+
+            setStarData({ label, data });
+        };
+
+        const getTotalStars = () => {
+            const myRepos = repoData
+                .filter((repo) => !repo.fork)
+                .map((repo) => repo.stargazers_count);
+            const totalStars = myRepos.reduce((a, b) => a + b, 0);
+
+            setTotalStars(totalStars);
+        };
+
+        const getMaxSizeRepos = () => {
+            const LIMIT = 5;
+            const sortProperty = "size";
+            const mostStarredRepos = repoData
+                .filter((repo) => !repo.fork)
+                .sort((a, b) => b[sortProperty] - a[sortProperty])
+                .slice(0, LIMIT);
+
+            const label = mostStarredRepos.map((repo) => repo.name);
+            const data = mostStarredRepos.map((repo) => repo[sortProperty]);
+
+            setSizeData({ label, data });
+        };
+
         if (repoData.length) {
             getMostStarredRepos();
             getMaxSizeRepos();
@@ -204,21 +205,15 @@ const Stats = ({ userData, repoData }) => {
 
             <RoundChartContainer>
                 <ChartDiv chart1>
-                    <ChartHeading>
-                        Largest in Size(kb)
-                    </ChartHeading>
+                    <ChartHeading>Largest in Size(kb)</ChartHeading>
                     <BarChart sizeData={sizeData} />
                 </ChartDiv>
                 <ChartDiv>
-                    <ChartHeading>
-                        Top Languages
-                    </ChartHeading>
+                    <ChartHeading>Top Languages</ChartHeading>
                     <DoughnutChart />
                 </ChartDiv>
-                <ChartDiv chart3 >
-                    <ChartHeading>
-                        Most Starred
-                    </ChartHeading>
+                <ChartDiv chart3>
+                    <ChartHeading>Most Starred</ChartHeading>
                     <PieChart starData={starData} width={100} />
                 </ChartDiv>
             </RoundChartContainer>
