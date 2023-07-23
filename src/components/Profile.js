@@ -204,7 +204,6 @@ const Profile = (props) => {
   const date = new Date(created_at);
   const joinedDate = date.toDateString().split(' ').slice(1).join(' ');
 
-  // console.log(props.userData);
   return (
     <ProfileSection>
       <UserContainer>
@@ -246,7 +245,11 @@ const Profile = (props) => {
             </li>
             <li>
               <IconSpan available={html_url}>
-                <a href={html_url} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="github profile">
                   <Button>
                     <GoMarkGithub /> @{login}
                   </Button>

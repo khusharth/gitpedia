@@ -87,12 +87,13 @@ const SearchForm = ({ displaySpan }) => {
     <Form onSubmit={(e) => onFormSubmit(e, user)} displaySpan={displaySpan}>
       <Span> ~ $ git --view </Span>
       <Input
+        aria-label="Enter Github Username"
         value={user}
         onChange={(e) => updateUser(e.target.value)}
         type="text"
         placeholder="Enter Github Username"
       />
-      <Button>
+      <Button aria-label="search">
         <FaSearch />
       </Button>
     </Form>

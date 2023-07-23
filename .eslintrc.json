@@ -19,6 +19,8 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "strict": ["error", "never"],
-    "react/prop-types": ["warn"]
+    /* TODO: once prop types are added remove this rule */
+    "react/prop-types": "off",
+    "@typescript-eslint/no-explicit-any": "warn"
   }
 }

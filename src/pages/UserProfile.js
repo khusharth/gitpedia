@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
 import {
   Header,
   Profile,
@@ -21,8 +22,9 @@ const TabSection = styled.section`
   }
 `;
 
-const UserProfile = (props) => {
-  const username = props.match.params.id;
+const UserProfile = () => {
+  const params = useParams();
+  const username = params.id;
 
   const [langData, langLoading, langError] = useLangData(username);
   const [userData, userLoading, userError] = useGithubUserData(username);
