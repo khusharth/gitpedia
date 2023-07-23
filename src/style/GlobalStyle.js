@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -28,10 +28,10 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         font-size: 1.6rem;
         line-height: 1.6;
-        color: ${p => p.theme.textColor};
+        color: ${(p) => p.theme.textColor};
         /* background-color: #F0F1F6; */
         background-color: #F5F6FA;
-        background-color: ${p => p.theme.bgColor};
+        background-color: ${(p) => p.theme.bgColor};
     }
 
     ul {
