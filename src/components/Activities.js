@@ -154,7 +154,7 @@ const Activities = ({ activityData }) => {
           action = `${actionPerformed} a comment on their pull request in `;
           break;
 
-        case 'PushEvent':
+        case 'PushEvent': {
           icon = <GoRepoPush />;
           let commit = 'commit';
           let branch = activity.payload.ref.slice(11);
@@ -165,7 +165,7 @@ const Activities = ({ activityData }) => {
 
           action = `Pushed ${activity.payload.size} ${commit} to ${branch} in `;
           break;
-
+        }
         case 'WatchEvent':
           icon = <GoStar />;
           action = 'Starred the repository ';
@@ -193,7 +193,7 @@ const Activities = ({ activityData }) => {
 
     if (messages.length !== 0) {
       return messages.map((message) => (
-        <li>
+        <li key={message.repoName}>
           <ActivitiesItem>
             <ActivityDiv>
               <span>
