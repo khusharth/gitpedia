@@ -17,8 +17,7 @@ const App = () => {
         setTheme: () => {
           setTheme((state) => (state.id === 'light' ? DarkTheme : LightTheme));
         }
-      }}
-    >
+      }}>
       <GlobalStyle />
       <Router>
         <Switch>

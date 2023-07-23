@@ -44,8 +44,7 @@ const Footer = () => {
         <ProjectLink
           href="https://github.com/khusharth/gitpedia/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           khusharth/gitpedia
         </ProjectLink>
       </div>

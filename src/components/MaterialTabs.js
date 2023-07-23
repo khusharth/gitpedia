@@ -63,8 +63,7 @@ const MaterialTabs = (props) => {
           value={selectedTab}
           onChange={handleChange}
           textColor="primary"
-          centered
-        >
+          centered>
           <Tab label="Stats" className={tab} classes={tabStyle} />
           <Tab label="Timeline" className={tab} classes={tabStyle} />
           <Tab label="Activities" className={tab} classes={tabStyle} />
