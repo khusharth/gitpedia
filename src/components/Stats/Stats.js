@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { GoRepo, GoOrganization, GoPerson, GoStar } from 'react-icons/go';
-import { DoughnutChart, PieChart, BarChart } from './Chart';
+import { DoughnutChart, PieChart, BarChart } from '../Chart';
+
+import { calculateTotalStars, calculateMostStarredRepos, calculateMaxSizeRepos } from './utils';
 
 const StatsContainer = styled.div`
   margin-top: 3rem;
@@ -126,39 +128,15 @@ const Stats = ({ userData, repoData }) => {
 
   useEffect(() => {
     const getMostStarredRepos = () => {
-      const LIMIT = 5;
-      const sortProperty = 'stargazers_count';
-      const mostStarredRepos = repoData
-        .filter((repo) => !repo.fork)
-        .sort((a, b) => b[sortProperty] - a[sortProperty])
-        .slice(0, LIMIT);
-
-      // Label and data needed for  displaying Charts
-      const label = mostStarredRepos.map((repo) => repo.name);
-      const data = mostStarredRepos.map((repo) => repo[sortProperty]);
-
-      setStarData({ label, data });
+      setStarData(calculateMostStarredRepos(repoData));
     };
 
     const getTotalStars = () => {
-      const myRepos = repoData.filter((repo) => !repo.fork).map((repo) => repo.stargazers_count);
-      const totalStars = myRepos.reduce((a, b) => a + b, 0);
-
-      setTotalStars(totalStars);
+      setTotalStars(calculateTotalStars(repoData));
     };
 
     const getMaxSizeRepos = () => {
-      const LIMIT = 5;
-      const sortProperty = 'size';
-      const mostStarredRepos = repoData
-        .filter((repo) => !repo.fork)
-        .sort((a, b) => b[sortProperty] - a[sortProperty])
-        .slice(0, LIMIT);
-
-      const label = mostStarredRepos.map((repo) => repo.name);
-      const data = mostStarredRepos.map((repo) => repo[sortProperty]);
-
-      setSizeData({ label, data });
+      setSizeData(calculateMaxSizeRepos(repoData));
     };
 
     if (repoData.length) {

@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import axios from 'axios';
 
+export const BASE_URL = 'https://api.github.com';
+
 let githubClientId;
 let githubClientSecret;
 
@@ -16,7 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // A pre configured instace of axios for github API
 export default axios.create({
-  baseURL: 'https://api.github.com',
+  baseURL: BASE_URL,
   auth: {
     username: githubClientId,
     password: githubClientSecret
