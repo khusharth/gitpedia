@@ -19,6 +19,7 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "strict": ["error", "never"],
-    "react/prop-types": ["warn"]
+    "react/prop-types": ["warn"],
+    "@typescript-eslint/no-explicit-any": "warn"
   }
 }
