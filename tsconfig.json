@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["cypress", "@testing-library/cypress"],
+    
     "jsx": "react",
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
@@ -109,5 +111,6 @@
  
   },
 
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+ 
 }
