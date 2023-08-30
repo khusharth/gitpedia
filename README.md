@@ -32,8 +32,8 @@ A web application to :mag: view a github's user profile in a more simple and bea
 
 ## :hatching_chick: Prerequisites
 
-- [node](https://nodejs.org/en/) >= 12.18.0
-- npm >= 6.14.4
+- [node](https://nodejs.org/en/) >= v18.15.0
+- npm >= 9.5.0
 
 ## :zap: Installation
 
