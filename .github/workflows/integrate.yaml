@@ -1,0 +1,26 @@
+# workflow name
+name: Gitpedia Continuous Integration
+
+# when should workflow run
+on:
+  pull_request:
+    branches: [master]
+
+# each workflow has one or more jobs
+jobs:
+  test_pull_request:
+    runs_on: ubuntu-latest
+    steps:
+      - name: Checkout
+         uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - name: Run cypress tests
+         uses: cypress-io/github-action@v5
+         with:
+          start: npm start
